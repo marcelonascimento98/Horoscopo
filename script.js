@@ -23,6 +23,24 @@ if (currentIndex === null) {
 
 const displayInterval = 3000; // Tempo em milissegundos (3 segundos) - Reduzido para ser mais rápido
 
+// Função para simular o consentimento de cookies automaticamente
+function acceptCookiesAutomatically() {
+    // Exemplo de como o botão de aceitação de cookies pode ser clicado automaticamente
+    // Isso depende do seletor do botão no site carregado
+    const cookieConsentButton = document.querySelector('.accept-cookies-button');
+    if (cookieConsentButton) {
+        cookieConsentButton.click(); // Simula o clique no botão de aceitação de cookies
+    }
+}
+
+window.onload = function() {
+    // Aceita os cookies assim que a página carrega
+    acceptCookiesAutomatically();
+
+    // Inicia o redirecionamento após a página carregar
+    redirectToNextLink();
+};
+
 function redirectToNextLink() {
     const { url, sign } = links[currentIndex];
 
@@ -44,6 +62,3 @@ function redirectToNextLink() {
         window.location.href = url;
     }, 50); // Reduzido para 500ms (0,5 segundos)
 }
-
-// Redireciona imediatamente ao carregar a página (faz a troca antes do redirecionamento)
-redirectToNextLink();
